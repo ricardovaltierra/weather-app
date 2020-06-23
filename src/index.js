@@ -1,1 +1,4 @@
-console.log("Works");
+import './style.css';
+import { render } from './domHandler';
+
+render();
