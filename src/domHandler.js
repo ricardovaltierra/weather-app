@@ -22,37 +22,41 @@ async function setData() {
   
   placesAutocomplete.on('change', async e => { 
     const placeData = [await e.suggestion.name, await e.suggestion.latlng];
-    console.log(placeData);
 
     let card = createElement('div', 'main', 'card', '');
 
-    getWeather(placeData[1]).then((weatherData) => {
-      const data = weatherData.response[0].ob;
+    getWeather(placeData[1]).then(weatherData => {
 
-      const date = new Date(data.dateTimeISO); 
-      const formatedDate = date.getFullYear()+'-' + (date. getMonth()+1) + '-'+date. getDate();
-  
-      setInner(card, `Here's your weather:
-                           <br> ${placeData[0]}
-                           <br> Date: ${formatedDate}
-                           <br> Weather: ${data.weather}
-                           <br> Temp °C: ${data.tempC}
-                           <br> Temp °F: ${data.tempF}
-                           <br> Real feel °C: ${data.feelslikeC}
-                           <br> Real feel °C: ${data.feelslikeF}
-                           <br> Wind speed K/h: ${data.windSpeedKPH}
-                           <br> Wind speed M/h: ${data.windSpeedMPH}
-                           <br> Humidity: ${data.humidity}
-                           <br> Wind direction: ${data.windDir}
-                           <br> Is day: ${data.isDay}`);
-  
-      // console.log(data);
-    });
+      try{
+        const data = weatherData.response[0].ob;
+
+        const date = new Date(data.dateTimeISO); 
+        const formatedDate = date.getFullYear()+'-' + (date. getMonth()+1) + '-'+date. getDate();
     
+        setInner(card, `Here's your weather:
+                            <br> ${placeData[0]}
+                            <br> Date: ${formatedDate}
+                            <br> Weather: ${data.weather}
+                            <br> Temp °C: ${data.tempC}
+                            <br> Temp °F: ${data.tempF}
+                            <br> Real feel °C: ${data.feelslikeC}
+                            <br> Real feel °C: ${data.feelslikeF}
+                            <br> Wind speed K/h: ${data.windSpeedKPH}
+                            <br> Wind speed M/h: ${data.windSpeedMPH}
+                            <br> Humidity: ${data.humidity}
+                            <br> Wind direction: ${data.windDir}
+                            <br> Is day: ${data.isDay}`);
+
+      } catch(err) {
+        alert("We're sorry, somthing went wrong    :(");
+      }
+    });
+
     let previous = document.getElementById("main");
     if(previous != null){
       previous.remove();
     }
+    
     document.getElementById('address-input').value = '';
     document.body.appendChild(card);
   });
