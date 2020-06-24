@@ -34,5 +34,8 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   },
-  "main": "webpack.config.js"
+  "main": "webpack.config.js",
+  "dependencies": {
+    "places.js": "^1.19.0"
+  }
 }
