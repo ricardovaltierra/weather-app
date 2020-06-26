@@ -42,16 +42,16 @@ function createDivs(childElements){
 function createElements() {
   let place = createElement('input', 'address-input', 'search-place-input', '');
   let card = createElement('div', 'main', 'card', '');
-  let title = createElement('h1', 'main-title', 'div-element', '--');
-  let city = createElement('h2', 'city-desc', 'div-element', '--');
-  let date = createElement('p', 'date-desc', 'div-element', '--');
-  let weather = createElement('p', 'weather-desc', 'div-element', '--');
-  let temperature = createElement('p', 'temperature-desc', 'div-element', '--');
-  let realFeel = createElement('p', 'realFeel-desc', 'div-element', '--');
-  let windSpeed = createElement('p', 'windSpeed-desc', 'div-element', '--');
-  let humidity = createElement('p', 'humidity-desc', 'div-element', '--');
-  let windDirection = createElement('p', 'windDirection-desc', 'div-element', '--');
-  let childElements = [title, city, date, weather, temperature, realFeel, windSpeed, humidity, windDirection];
+  let title = createElement('h1', 'main-title', 'div-element', 'Here\'s your weather!');
+  let city = createElement('h2', 'city-desc', 'div-element', 'City');
+  let date = createElement('p', 'date-desc', 'div-element', 'Date');
+  let weather = createElement('p', 'weather-desc', 'div-element', 'Weather');
+  let temperature = createElement('p', 'temperature-desc', 'div-element', 'Temperature');
+  let realFeel = createElement('p', 'realFeel-desc', 'div-element', 'Real Feel');
+  let windSpeed = createElement('p', 'windSpeed-desc', 'div-element', 'Wind Speed');
+  let humidity = createElement('p', 'humidity-desc', 'div-element', 'Humidity');
+  let windDirection = createElement('p', 'windDirection-desc', 'div-element', 'Wind Direction');
+  let childElements = [title, city, date, weather, temperature, realFeel, windSpeed, humidity, windDirection];  
 
   place.placeholder = 'Current weather of...';
   
@@ -59,7 +59,6 @@ function createElements() {
   appendChilds(card, divs);
   appendToBody(place);
   appendToBody(card);
-  
 }
 
 export function setFields(name, data, formatedDate) {
