@@ -10,6 +10,8 @@ import {
   addToInner,
   setValue,
   appendChild,
+  appendChilds,
+  appendToBody,
 } from './elementsHander';
 
 export function cleanFields() {
@@ -26,9 +28,42 @@ export function errorDisplayer(err) {
   alert("We're sorry, somthing went wrong    :(");
 }
 
-export function setFields(name, data, formatedDate) {
-  let card = createElement('div', 'main', 'card', '');
+function createDivs(childElements){
+  let divs = [];
 
+  for (var i = 0; i < childElements.length; ++i) {
+      divs[i] = createElement('div', `div${i}`, 'divElement', ``);
+      appendChild(divs[i], childElements[i]);
+  }
+
+  return divs;
+}
+
+function createElements() {
+  let place = createElement('input', 'address-input', 'search-place-input', '');
+  let card = createElement('div', 'main', 'card', '');
+  let title = createElement('h1', 'main-title', 'div-element', '--');
+  let city = createElement('h2', 'city-desc', 'div-element', '--');
+  let date = createElement('p', 'date-desc', 'div-element', '--');
+  let weather = createElement('p', 'weather-desc', 'div-element', '--');
+  let temperature = createElement('p', 'temperature-desc', 'div-element', '--');
+  let realFeel = createElement('p', 'realFeel-desc', 'div-element', '--');
+  let windSpeed = createElement('p', 'windSpeed-desc', 'div-element', '--');
+  let humidity = createElement('p', 'humidity-desc', 'div-element', '--');
+  let windDirection = createElement('p', 'windDirection-desc', 'div-element', '--');
+  let childElements = [title, city, date, weather, temperature, realFeel, windSpeed, humidity, windDirection];
+
+  place.placeholder = 'Current weather of...';
+  
+  let divs = createDivs(childElements);
+  appendChilds(card, divs);
+  appendToBody(place);
+  appendToBody(card);
+  
+}
+
+export function setFields(name, data, formatedDate) {
+  
   setInner(card, `Here's your weather:
                             <br> ${name}
                             <br> Date: ${formatedDate}
@@ -48,8 +83,6 @@ export function setFields(name, data, formatedDate) {
 }
 
 export function render() {
-  const place = createElement('input', 'address-input', 'search-place-input', '');
-  place.placeholder = 'Current weather of...';
-  appendChild(document.body, place);
+  createElements();
   getPlace();
 }
