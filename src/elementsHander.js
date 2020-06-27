@@ -1,7 +1,7 @@
-export function createElement(type = 'div', id = '', classLst = '', inner = '') {
+export function createElement(type = 'div', id = null, classLst = null, inner = '') {
   const elem = document.createElement(type);
-  elem.id = id;
-  elem.classList.add(classLst);
+  if (id) elem.id = id;
+  if (classLst) elem.classList.add(classLst);
   elem.innerHTML = inner;
   return elem;
 }

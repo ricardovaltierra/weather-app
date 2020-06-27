@@ -41,22 +41,37 @@ function createDivs(childElements){
 
 function createElements() {
   let place = createElement('input', 'address-input', 'search-place-input', '');
-  let card = createElement('div', 'main', 'card', '');
+  let card = createElement('div', 'main', 'main-card', '');
   let title = createElement('h1', 'main-title', 'div-element', 'Here\'s your weather!');
   let city = createElement('h2', 'city-desc', 'div-element', 'City');
-  let date = createElement('p', 'date-desc', 'div-element', 'Date');
-  let weather = createElement('p', 'weather-desc', 'div-element', 'Weather');
-  let temperature = createElement('p', 'temperature-desc', 'div-element', 'Temperature');
-  let realFeel = createElement('p', 'realFeel-desc', 'div-element', 'Real Feel');
-  let windSpeed = createElement('p', 'windSpeed-desc', 'div-element', 'Wind Speed');
-  let humidity = createElement('p', 'humidity-desc', 'div-element', 'Humidity');
-  let windDirection = createElement('p', 'windDirection-desc', 'div-element', 'Wind Direction');
-  let childElements = [title, city, date, weather, temperature, realFeel, windSpeed, humidity, windDirection];  
+  let date = createElement('p', 'date-desc', 'div-element', 'Date:  --');
+  let weather = createElement('p', 'weather-desc', 'div-element', 'Weather:  --');
+  let temperature = createElement('p', 'temperature-desc', 'div-element', 'Temperature:  --');
+  let realFeel = createElement('p', 'realFeel-desc', 'div-element', 'Real Feel:  --');
+  let windSpeed = createElement('p', 'windSpeed-desc', 'div-element', 'Wind Speed:  --');
+  let humidity = createElement('p', 'humidity-desc', 'div-element', 'Humidity:  --');
+  let windDirection = createElement('p', 'windDirection-desc', 'div-element', 'Wind Direction:  --');
+  let toggleCFDiv = createElement('div', '', 'field', '');
+  // let toggleCFInput = createElement('input', 'switchExample', 'switch', '');
+  // let toggleCFLabel = createElement('label', '', '', 'Switch example');
+  
+  // toggleCFInput.type = 'checkbox';
+  // toggleCFInput.name = 'switchExample';
+  // toggleCFInput.checked = true;
+  // toggleCFLabel.htmlFor = 'switchExample';
+  // appendChilds(toggleCFDiv, [toggleCFInput, toggleCFLabel]);
+  let str = `<input id="switchExample" type="checkbox" name="switchExample" class="switch" checked="checked">
+  <label for="switchExample">Switch example</label>`;
+  setInner(toggleCFDiv, str);
+
+
+  let childElements = [title, city, date, weather, temperature, realFeel, windSpeed, humidity, windDirection];
 
   place.placeholder = 'Current weather of...';
   
   let divs = createDivs(childElements);
   appendChilds(card, divs);
+  appendChild(card, toggleCFDiv);
   appendToBody(place);
   appendToBody(card);
 }
