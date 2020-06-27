@@ -6,6 +6,7 @@
 html,
 body {
   height: 100%;
+  background-color: #100c08;
 }
 
 .hide {
@@ -18,7 +19,7 @@ body {
   margin: 15px 0;
   margin-top: 50px;
   padding: 10px 0;
-  background-color: lawngreen;
+  border: 1px solid #dfd;
   
 
   h1 {
@@ -33,6 +34,7 @@ body {
     position: relative;
     display: inline;
     text-align: center;
+    color: #ccc;
     font-weight: 300;
     margin: 10px 0;
   }
