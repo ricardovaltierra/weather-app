@@ -14,12 +14,28 @@ import {
   appendToBody,
 } from './elementsHander';
 
-export function cleanFields() {
-  const previous = getElement('main');
-  if (previous != null) {
-    previous.remove();
-  }
+export let dataArray = {
+  name: 'City',
+  data: 
+    {
+    feelslikeC: '--',
+    feelslikeF: '--',
+    humidity: '--',
+    isDay: false,
+    tempC: '--',
+    tempF: '--',
+    weather: '--',
+    weatherPrimaryCoded: '--',
+    windDir: '--',
+    windSpeedKPH: '--',
+    windSpeedMPH: '--'
+    },
+  date: '--'
 
+  
+};
+
+export function cleanInput() {
   getElement('address-input').value = '';
 }
 
@@ -35,65 +51,75 @@ function createDivs(childElements){
       divs[i] = createElement('div', `div${i}`, 'divElement', ``);
       appendChild(divs[i], childElements[i]);
   }
-
   return divs;
 }
 
 function createElements() {
-  let place = createElement('input', 'address-input', 'search-place-input', '');
-  let card = createElement('div', 'main', 'main-card', '');
-  let title = createElement('h1', 'main-title', 'div-element', 'Here\'s your weather!');
-  let city = createElement('h2', 'city-desc', 'div-element', 'City');
-  let date = createElement('p', 'date-desc', 'div-element', 'Date:  --');
-  let weather = createElement('p', 'weather-desc', 'div-element', 'Weather:  --');
-  let temperature = createElement('p', 'temperature-desc', 'div-element', 'Temperature:  --');
-  let realFeel = createElement('p', 'realFeel-desc', 'div-element', 'Real Feel:  --');
-  let windSpeed = createElement('p', 'windSpeed-desc', 'div-element', 'Wind Speed:  --');
-  let humidity = createElement('p', 'humidity-desc', 'div-element', 'Humidity:  --');
-  let windDirection = createElement('p', 'windDirection-desc', 'div-element', 'Wind Direction:  --');
-  let toggleCFDiv = createElement('div', '', 'field', '');
-  // let toggleCFInput = createElement('input', 'switchExample', 'switch', '');
-  // let toggleCFLabel = createElement('label', '', '', 'Switch example');
-  
-  // toggleCFInput.type = 'checkbox';
-  // toggleCFInput.name = 'switchExample';
-  // toggleCFInput.checked = true;
-  // toggleCFLabel.htmlFor = 'switchExample';
-  // appendChilds(toggleCFDiv, [toggleCFInput, toggleCFLabel]);
-  let str = `<input id="switchExample" type="checkbox" name="switchExample" class="switch" checked="checked">
-  <label for="switchExample">Switch example</label>`;
-  setInner(toggleCFDiv, str);
-
-
-  let childElements = [title, city, date, weather, temperature, realFeel, windSpeed, humidity, windDirection];
+  let place = createElement('input', 'address-input', 'search-place-input', ''),
+      card = createElement('div', 'main', 'main-card', ''),
+      title = createElement('h1', 'main-title', 'div-element', 'Here\'s your weather!'),
+      city = createElement('h2', 'city-desc', 'div-element', 'City'),
+      date = createElement('p', 'date-desc', 'div-element', 'Date:  --'),
+      weather = createElement('p', 'weather-desc', 'div-element', 'Weather:  --'),
+      temperature = createElement('p', 'temperature-desc', 'div-element', 'Temperature:  -- °C'),
+      realFeel = createElement('p', 'realFeel-desc', 'div-element', 'Real Feel:  -- °C'),
+      windSpeed = createElement('p', 'windSpeed-desc', 'div-element', 'Wind Speed:  -- K/hr'),
+      humidity = createElement('p', 'humidity-desc', 'div-element', 'Humidity:  --'),
+      windDirection = createElement('p', 'windDirection-desc', 'div-element', 'Wind Direction:  --'),
+      toggleCFDiv = createElement('div', '', 'field', ''),
+      toggleCF = createElement('input', 'switchCF', 'switch', ''),
+      CLabel = createElement('label', 'clabel', '', 'C°'),
+      FLabel = createElement('label', 'flabel', '', 'F° '),
+      childElements,
+      divs;
 
   place.placeholder = 'Current weather of...';
-  
-  let divs = createDivs(childElements);
+  toggleCF.type     = 'checkbox';
+  toggleCF.name     = 'switchCF';
+  toggleCF.checked  = 'checked';
+  FLabel.htmlFor    = 'switchCF';
+  CLabel.htmlFor    = 'switchCF';
+  childElements     = [title, city, date, weather, temperature, realFeel, windSpeed, humidity, windDirection, toggleCFDiv];
+  divs              = createDivs(childElements);
+
+  appendChilds(toggleCFDiv, [FLabel, toggleCF, CLabel]);
   appendChilds(card, divs);
-  appendChild(card, toggleCFDiv);
+
   appendToBody(place);
   appendToBody(card);
+
+  setClickListener(toggleCF, setFields);
 }
 
-export function setFields(name, data, formatedDate) {
-  
-  setInner(card, `Here's your weather:
-                            <br> ${name}
-                            <br> Date: ${formatedDate}
-                            <br> Weather: ${data.weather}
-                            <br> Weather image code: ${data.weatherPrimaryCoded}
-                            <br> Temp °C: ${data.tempC}
-                            <br> Temp °F: ${data.tempF}
-                            <br> Real feel °C: ${data.feelslikeC}
-                            <br> Real feel °C: ${data.feelslikeF}
-                            <br> Wind speed K/h: ${data.windSpeedKPH}
-                            <br> Wind speed M/h: ${data.windSpeedMPH}
-                            <br> Humidity: ${data.humidity}
-                            <br> Wind direction: ${data.windDir}
-                            <br> Is day: ${data.isDay}`);
+export function setFields() {
 
-  document.body.appendChild(card);
+  let data= dataArray.data;
+
+  if(getElement('switchCF').checked) {
+
+    setInner(getElement('city-desc'), `${dataArray.name || '--'}`);
+    setInner(getElement('date-desc'), `Date:  ${dataArray.date || '--'}`);
+    setInner(getElement('weather-desc'), `Weather:  ${data.weather || '--'}`);
+    setInner(getElement('temperature-desc'), `Temperature:  ${data.tempC || '--'} °C`);
+    setInner(getElement('realFeel-desc'), `Real Feel:  ${data.feelslikeC || '--'} °C`);
+    setInner(getElement('windSpeed-desc'), `Wind Speed:  ${data.windSpeedKPH || '--'} K/Hr`);
+    setInner(getElement('humidity-desc'), `Humidity:  ${data.humidity || '--'}`);
+    setInner(getElement('windDirection-desc'), ` Wind direction: ${data.windDir || '--'}`);
+
+  } else {
+
+    setInner(getElement('city-desc'), `${dataArray.name || '--'}`);
+    setInner(getElement('date-desc'), `Date:  ${dataArray.date || '--'}`);
+    setInner(getElement('weather-desc'), `Weather:  ${data.weather || '--'}`);
+    setInner(getElement('temperature-desc'), `Temperature:  ${data.tempF || '--'} °F`);
+    setInner(getElement('realFeel-desc'), `Real Feel:  ${data.feelslikeF || '--'} °F`);
+    setInner(getElement('windSpeed-desc'), `Wind Speed:  ${data.windSpeedMPH || '--'} Mi/hr`);
+    setInner(getElement('humidity-desc'), `Humidity:  ${data.humidity || '--'}`);
+    setInner(getElement('windDirection-desc'), ` Wind direction: ${data.windDir || '--'}`);
+  }
+  
+  // data.weatherPrimaryCoded
+  // data.isDay
 }
 
 export function render() {
