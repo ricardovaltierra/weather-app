@@ -1,5 +1,5 @@
 import * as credentials from './credentials';
-import { cleanFields, setFields, errorDisplayer } from './domHandler';
+import { cleanInput, dataArray, errorDisplayer, setFields } from './domHandler';
 import { getElement } from './elementsHander';
 
 export async function getPlace() {
@@ -46,8 +46,11 @@ async function weatherController(placeData) {
       date = new Date(data.dateTimeISO);
       formatedDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 
-      cleanFields();
-      setFields(placeData[0], data, formatedDate);
+      cleanInput();
+      dataArray.name = placeData[0]
+      dataArray.data = data;
+      dataArray.date = formatedDate;
+      setFields();
     } catch (err) {
       errorDisplayer(err);
     }
