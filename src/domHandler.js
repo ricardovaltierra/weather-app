@@ -1,4 +1,4 @@
-import { getPlace } from './apiconnection';
+import { getPlace, weatherCodes, cloudCodes } from './apiconnection';
 import {
   createElement,
   getElement,
@@ -89,15 +89,26 @@ function createElements() {
   appendChilds(toggleCFDiv, [FLabel, toggleCF, CLabel]);
   appendChilds(card, divs);
   appendChilds(main, [divPlace, card, Wicon]);
-  
+
   appendToBody(main);
 
   setClickListener(toggleCF, setFields);
 }
 
+function setBackground(imageData) {
+
+  let code = imageData[0];
+  let isDay = imageData[1];
+
+
+  console.log(`Code: ${imageData[0]}`);
+  console.log(`Day?: ${imageData[1]}`)
+}
+
 export function setFields() {
 
-  let data= dataArray.data;
+  let data = dataArray.data;
+  let imageData = [data.weatherPrimaryCoded, data.isDay];
 
   if(getElement('switchCF').checked) {
 
@@ -121,9 +132,8 @@ export function setFields() {
     setInner(getElement('humidity-desc'), `Humidity:  ${data.humidity || '--'}`);
     setInner(getElement('windDirection-desc'), ` Wind direction: ${data.windDir || '--'}`);
   }
-  
-  // data.weatherPrimaryCoded
-  // data.isDay
+
+  setBackground(imageData);
 }
 
 export function render() {
