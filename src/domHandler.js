@@ -31,12 +31,10 @@ export let dataArray = {
     windSpeedMPH: '--'
     },
   date: '--'
-
-  
 };
 
 export function cleanInput() {
-  getElement('address-input').value = '';
+  setValue(getElement('address-input'), '');
 }
 
 export function errorDisplayer(err) {
@@ -55,21 +53,24 @@ function createDivs(childElements){
 }
 
 function createElements() {
-  let place = createElement('input', 'address-input', 'search-place-input', ''),
-      card = createElement('div', 'main', 'main-card', ''),
-      title = createElement('h1', 'main-title', 'div-element', 'Here\'s your weather!'),
-      city = createElement('h2', 'city-desc', 'div-element', 'City'),
-      date = createElement('p', 'date-desc', 'div-element', 'Date:  --'),
-      weather = createElement('p', 'weather-desc', 'div-element', 'Weather:  --'),
-      temperature = createElement('p', 'temperature-desc', 'div-element', 'Temperature:  -- °C'),
-      realFeel = createElement('p', 'realFeel-desc', 'div-element', 'Real Feel:  -- °C'),
-      windSpeed = createElement('p', 'windSpeed-desc', 'div-element', 'Wind Speed:  -- K/hr'),
-      humidity = createElement('p', 'humidity-desc', 'div-element', 'Humidity:  --'),
+  let main          = createElement('main', '', 'main-container', ''),
+      divPlace      = createElement('div', 'divPlace', '', ''),
+      place         = createElement('input', 'address-input', 'search-place-input', ''),
+      card          = createElement('div', 'main', 'main-card', ''),
+      title         = createElement('h1', 'main-title', 'div-element', 'Here\'s your weather!'),
+      city          = createElement('h2', 'city-desc', 'div-element', 'City'),
+      date          = createElement('p', 'date-desc', 'div-element', 'Date:  --'),
+      weather       = createElement('p', 'weather-desc', 'div-element', 'Weather:  --'),
+      temperature   = createElement('p', 'temperature-desc', 'div-element', 'Temperature:  -- °C'),
+      realFeel      = createElement('p', 'realFeel-desc', 'div-element', 'Real Feel:  -- °C'),
+      windSpeed     = createElement('p', 'windSpeed-desc', 'div-element', 'Wind Speed:  -- K/hr'),
+      humidity      = createElement('p', 'humidity-desc', 'div-element', 'Humidity:  --'),
       windDirection = createElement('p', 'windDirection-desc', 'div-element', 'Wind Direction:  --'),
-      toggleCFDiv = createElement('div', '', 'field', ''),
-      toggleCF = createElement('input', 'switchCF', 'switch', ''),
-      CLabel = createElement('label', 'clabel', '', 'C°'),
-      FLabel = createElement('label', 'flabel', '', 'F° '),
+      toggleCFDiv   = createElement('div', '', 'field', ''),
+      toggleCF      = createElement('input', 'switchCF', 'switch', ''),
+      CLabel        = createElement('label', 'clabel', '', 'C°'),
+      FLabel        = createElement('label', 'flabel', '', 'F° '),
+      Wicon         = createElement('img', 'wicon', '', ''),
       childElements,
       divs;
 
@@ -81,12 +82,15 @@ function createElements() {
   CLabel.htmlFor    = 'switchCF';
   childElements     = [title, city, date, weather, temperature, realFeel, windSpeed, humidity, windDirection, toggleCFDiv];
   divs              = createDivs(childElements);
+  Wicon.src         = 'http://pluspng.com/img-png/partly-cloudy-png-hd-simple-weather-icons-partly-cloudy-600.png';
+  Wicon.width       = '150';
 
+  appendChild(divPlace, place);
   appendChilds(toggleCFDiv, [FLabel, toggleCF, CLabel]);
   appendChilds(card, divs);
-
-  appendToBody(place);
-  appendToBody(card);
+  appendChilds(main, [divPlace, card, Wicon]);
+  
+  appendToBody(main);
 
   setClickListener(toggleCF, setFields);
 }
