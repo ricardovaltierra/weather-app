@@ -2,6 +2,12 @@ import * as credentials from './credentials';
 import { setContent } from './domHandler';
 import { getElement } from './elementsHander';
 
+export const cloudCodes = {
+  clear: /:(CL|FW)$/i,
+  partly_cloudy: /:SC$/i,
+  mostly_cloudy: /:(BK|OV)$/i
+}
+
 export const weatherCodes = {
   hail: /:A$/i,
   dust_sand: /:(BD|BN)$/i,
@@ -15,12 +21,6 @@ export const weatherCodes = {
   volc_ash: /:VA$/i,
   waterspouts: /:WP$/i
 };
-
-export const cloudCodes = {
-  clear: /:(CL|FW)$/i,
-  partly_cloudy: /:SC$/i,
-  mostly_cloudy: /:(BK|OV)$/i
-}
 
 export async function getPlace() {
   const places = require('places.js');

@@ -1,3 +1,69 @@
+.init-icon {
+  background: url(f15462f8fec5cda3b0f1e200faf89358.svg); }
+
+.clear-day {
+  background: url(cd3cd991ca158f3c1e51febfb269af43.svg); }
+
+.partly_cloudy-day {
+  background: url(fdfd45338ae0cd8d3a5e45deb684843f.svg); }
+
+.mostly_cloudy-day {
+  background: url(997181dd470aa2782167ef13be87ba9e.svg); }
+
+.mist_fog-day {
+  background: url(4a0639a1137a94456cbcda636a13c309.svg); }
+
+.frost_snow-day {
+  background: url(ac20f9d1b0233123552d9a008d6db20d.svg); }
+
+.rain_drizzle-day {
+  background: url(8865157fd204422aa1ee5e038a73a2d8.svg); }
+
+.waterspouts-day {
+  background: url(744e5c4e66d88103ed226af33e458424.svg); }
+
+.clear-night {
+  background: url(9f2611341fc7ca25b1c864febb4dc56d.svg); }
+
+.partly_cloudy-night {
+  background: url(9b9ad89b2490fa27dc2f875542fe60b1.svg); }
+
+.mostly_cloudy-night {
+  background: url(755c22a4cadc45292737860224856076.svg); }
+
+.mist_fog-night {
+  background: url(82c811cc5c37d2b4217fc8a3f78e4ea3.svg); }
+
+.frost_snow-night {
+  background: url(57fc7ad8bfaaa44c05c42e8d330b13be.svg); }
+
+.rain_drizzle-night {
+  background: url(8432a21e63dafc246d93d5b94e809da3.svg); }
+
+.waterspouts-night {
+  background: url(1cdcc9263da9243771b68b4600dda71a.svg); }
+
+.unknown {
+  background: url(66f7796213e2ed64d062a7d7ec903c61.svg); }
+
+.hail {
+  background: url(5a89bb2ae17e85ebd6f4315838c03aa6.svg); }
+
+.dust-sand {
+  background: url(3f83367ccb918733279844ca34fffeaf.svg); }
+
+.smoke {
+  background: url(6a53645f9d0186823228b5f740eea30c.svg); }
+
+.wintry_mix {
+  background: url(ebec1bebab210acad2690029be0fc4aa.svg); }
+
+.thunderstorm {
+  background: url(c2289b239467f1006502f542ea883deb.svg); }
+
+.volc_ash {
+  background: url(6a53645f9d0186823228b5f740eea30c.svg); }
+
 /*! bulma.io v0.9.0 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
   from {
@@ -8146,10 +8212,7 @@ main {
   width: 150px;
   justify-self: center;
   margin: 0;
-  border: 1px solid #ccc; }
-
-.init-weather {
-  background: url(66f7796213e2ed64d062a7d7ec903c61.svg);
+  border: 1px solid #ccc;
   background-repeat: no-repeat;
   background-position: center center; }
 
