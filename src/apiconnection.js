@@ -3,23 +3,23 @@ import { setContent } from './domHandler';
 import { getElement } from './elementsHander';
 
 export const weatherCodes = {
-  hail: ['A'],
-  dust_sand: ['BD','BN'],
-  mist_fog: ['BR','BS','BY','F','H','IF','ZF'],
-  frost_snow: ['FR','IC','IP','S','SW','SI'],
-  smoke: ['K'],
-  rain_drizzle: ['L','R','RW','RS','ZL','ZR','ZY'],
-  wintry_mix: ['WM'],
-  thunderstorm: ['T'],
-  unknown: ['UP'],
-  volc_ash: ['VA'],
-  waterspouts: ['WP']
+  hail: /:A$/i,
+  dust_sand: /:(BD|BN)$/i,
+  mist_fog: /:(BR|BS|BY|F|H|IF|ZF)$/i,
+  frost_snow: /:(FR|IC|IP|S|SW|SI)$/i,
+  smoke: /:K$/i,
+  rain_drizzle: /:(L|R|RW|RS|ZL|ZR|ZY)$/i,
+  wintry_mix: /:WM$/i,
+  thunderstorm: /:T$/i,
+  unknown: /:UP$/i,
+  volc_ash: /:VA$/i,
+  waterspouts: /:WP$/i
 };
 
 export const cloudCodes = {
-  clear: ['CL','FW'],
-  partly_cloudy: ['SC'],
-  mostly_cloudy: ['BK','OV']
+  clear: /:(CL|FW)$/i,
+  partly_cloudy: /:SC$/i,
+  mostly_cloudy: /:(BK|OV)$/i
 }
 
 export async function getPlace() {

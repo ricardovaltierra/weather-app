@@ -9,7 +9,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'css/mystyles.css'
+      filename: 'mystyles.css'
     }),
     new HtmlWebpackPlugin({
       title: 'Weather App',

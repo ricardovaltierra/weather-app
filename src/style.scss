@@ -23,8 +23,10 @@ main {
   position: relative;
   display: grid;
   grid-template-columns: 90%;
+  grid-template-rows: 15% 65% 20%;
   justify-content: center;
   padding: 10px 0;
+  padding-bottom: 80px;
 }
 
 #divPlace {
@@ -66,8 +68,16 @@ main {
 #wicon {
   position: relative;
   display: block;
+  width: 150px;
   justify-self: center;
+  margin: 0;
   border: 1px solid #ccc;
+}
+
+.init-weather {
+  background: url('./svg/44.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 @media screen and (min-width: 768px) {
