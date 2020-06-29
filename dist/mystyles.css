@@ -64,6 +64,72 @@
 .volc_ash {
   background: url(6a53645f9d0186823228b5f740eea30c.svg); }
 
+.init-bkg {
+  background: url("https://miro.medium.com/max/3456/1*YzmTNzLF459BcrOuKjlZlQ.jpeg"); }
+
+.clear-d-bkg {
+  background: lightblue url("https://live.staticflickr.com/4068/4648802072_ffd714fbd5_b.jpg"); }
+
+.partly_c-d-bkg {
+  background: url("https://i.pinimg.com/474x/77/18/86/7718861b2580f0d3d164b3b71e51d79b--cloudy-day-look-at.jpg"); }
+
+.mostly_c-d-bkg {
+  background: url("https://static-26.sinclairstoryline.com/resources/media/c91b0823-7fc0-4edf-80e1-85e4499795c2-large3x4_1.png?1557882871413"); }
+
+.mist_f-d-bkg {
+  background: url("https://live.staticflickr.com/7925/46920842251_e03eaa8a0e_b.jpg"); }
+
+.frost_s-d-bkg {
+  background: url("https://image.freepik.com/free-photo/sunny-winter-day-frost-trees-grass-branches_120795-361.jpg"); }
+
+.rain_d-d-bkg {
+  background: url("https://miro.medium.com/max/6048/0*Q2EFk7g36R0h8dAZ"); }
+
+.watersp-d-bkg {
+  background: url("https://s.yimg.com/ny/api/res/1.2/HCKfxu7sL.YBvNsedbq_Og--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTg1My42Nzc0MTkzNTQ4Mzg3/https://s.yimg.com/uu/api/res/1.2/tm_Pe42R54jnOqx9lcbRng--~B/aD04Mjc7dz02MjA7c209MTthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/cbc.ca/ab07acd5cb6123561c234806974bf21e"); }
+
+.clear-n-bkg {
+  background: url("https://geekymonkey.photos/wp-content/uploads/2016/09/on-a-clear-night.jpg"); }
+
+.partly_c-n-bkg {
+  background: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/moon-cloud-heather-boyce.jpg"); }
+
+.mostly_c-n-bkg {
+  background: url("https://i.pinimg.com/736x/6e/21/76/6e2176e7dc1299d7a9c8e374d81d426b.jpg"); }
+
+.mist_f-n-bkg {
+  background: url("https://i.pinimg.com/736x/b4/fe/7c/b4fe7cd7753247bc58a41c01527eaac3.jpg"); }
+
+.frost_s-n-bkg {
+  background: url("https://thumbs.dreamstime.com/b/winter-lace-made-snow-light-95987222.jpg"); }
+
+.rain_d-n-bkg {
+  background: url("https://images.unsplash.com/photo-1532249991072-89f3389e8e80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"); }
+
+.watersp-n-bkg {
+  background: url("https://pbs.twimg.com/media/D7ogddfUwAAb-QS.jpg"); }
+
+.unknown-bkg {
+  background: url("https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,g_center,h_1024,q_75,w_640/v1/clients/kamloops/Weather_header_jkanesanders_605d03ab-b3a8-453c-91e8-27e37bffc7e6.jpg"); }
+
+.hail-bkg {
+  background: url("https://pbs.twimg.com/media/DlYHSvIX4AAYmwQ.jpg"); }
+
+.dust-sand-bkg {
+  background: url("https://media.defense.gov/2018/Jul/03/2001938791/-1/-1/0/180624-F-XX000-0006.JPG"); }
+
+.smoke-bkg {
+  background: url("https://media.socastsrm.com/wordpress/wp-content/blogs.dir/886/files/2019/05/SMOKE-OVER-ALBERTA-FROM-A-PLANE.jpg"); }
+
+.wintry_mix-bkg {
+  background: url("https://daily-voice-res.cloudinary.com/image/upload/c_limit,e_sharpen,f_auto,q_auto:eco,w_640/Screen_Shot_2016-01-28_at_8.32.00_PM_biz3lu.jpg"); }
+
+.thunderstorm-bkg {
+  background: url("https://p0.pikist.com/photos/356/229/lightning-bolt-thunderstorm-thunderbolt-thunder-storm-power-weather-dangerous.jpg"); }
+
+.volc_ash-bkg {
+  background: url("https://www.almanac.com/sites/default/files/d6/images/Sakurajima_20091003.jpg"); }
+
 /*! bulma.io v0.9.0 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
   from {
@@ -8170,14 +8236,17 @@ body {
   grid-template-columns: 99%;
   justify-content: center; }
 
-main {
+#bkg-cont {
   position: relative;
   display: grid;
   grid-template-columns: 90%;
   grid-template-rows: 15% 65% 20%;
   justify-content: center;
   padding: 10px 0;
-  padding-bottom: 80px; }
+  padding-bottom: 80px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover; }
 
 #divPlace {
   position: relative;
@@ -8193,7 +8262,9 @@ main {
   margin: 15px 0;
   margin-top: 50px;
   padding: 5px 0;
-  border: 1px solid #dfd; }
+  border-radius: 10px;
+  color: #775e5e;
+  background-color: rgba(80, 255, 255, 0.1); }
   #main h1 {
     font-size: 1.5rem; }
   #main h2 {
@@ -8202,17 +8273,28 @@ main {
     position: relative;
     display: inline;
     text-align: center;
-    color: #ccc;
     font-weight: 300;
     margin: 10px 0; }
+
+#wicon-cont {
+  position: relative;
+  display: block;
+  width: 150px;
+  height: 150px;
+  justify-self: center;
+  margin: 0;
+  border-radius: 50%;
+  background: #f5f5e5;
+  background: linear-gradient(7deg, #f5f5e5 0%, rgba(255, 255, 255, 0.088673) 44%, rgba(124, 232, 255, 0.0942752) 100%); }
 
 #wicon {
   position: relative;
   display: block;
   width: 150px;
+  height: 150px;
   justify-self: center;
   margin: 0;
-  border: 1px solid #ccc;
+  border-radius: 50%;
   background-repeat: no-repeat;
   background-position: center center; }
 
@@ -8224,6 +8306,5 @@ main {
     align-items: center; }
   main {
     width: 375px;
-    height: 686px;
-    border: 1px solid #ccc; } }
+    height: 686px; } }
 

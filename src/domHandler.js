@@ -43,7 +43,7 @@ function createDivs(childElements){
 }
 
 function createElements() {
-  let main          = createElement('main', '', 'main-container', ''),
+  let main          = createElement('main', 'bkg-cont', 'init-bkg', ''),
       divPlace      = createElement('div', 'divPlace', '', ''),
       place         = createElement('input', 'address-input', 'search-place-input', ''),
       card          = createElement('div', 'main', 'main-card', ''),
@@ -60,6 +60,7 @@ function createElements() {
       toggleCF      = createElement('input', 'switchCF', 'switch', ''),
       CLabel        = createElement('label', 'clabel', '', 'C°'),
       FLabel        = createElement('label', 'flabel', '', 'F° '),
+      WiCont         = createElement('div', 'wicon-cont', '', ''),
       Wicon         = createElement('div', 'wicon', 'init-icon', ''),
       childElements,
       divs;
@@ -74,9 +75,10 @@ function createElements() {
   divs              = createDivs(childElements);
 
   appendChild(divPlace, place);
+  appendChild(WiCont, Wicon);
   appendChilds(toggleCFDiv, [FLabel, toggleCF, CLabel]);
   appendChilds(card, divs);
-  appendChilds(main, [divPlace, card, Wicon]);
+  appendChilds(main, [divPlace, card, WiCont]);
 
   appendToBody(main);
 
@@ -84,7 +86,6 @@ function createElements() {
 }
 
 function errorDisplayer() {
-  console.log(catchData.message);
   alert("We're sorry, somthing went wrong    :(");
 }
 
@@ -97,85 +98,111 @@ function setImages() {
   let isDay = catchData.isDay;
   let code = catchData.weatherPrimaryCoded;
 
+  getElement('main').style.color = '#775e5e';
+
   if(weatherCodes.hail.test(code)){
-    console.log(`is night with hail ${code}`);
     setToClass(getElement('wicon'),'hail');
+    setToClass(getElement('bkg-cont'), 'hail-bkg');
   }
   else if(weatherCodes.dust_sand.test(code)){
     setToClass(getElement('wicon'),'dust-sand');
+    setToClass(getElement('bkg-cont'), 'dust-sand-bkg');
   }
   else if(weatherCodes.smoke.test(code)){
     setToClass(getElement('wicon'),'smoke');
+    setToClass(getElement('bkg-cont'), 'smoke-bkg');
   }
   else if(weatherCodes.wintry_mix.test(code)){
     setToClass(getElement('wicon'),'wintry_mix');
+    setToClass(getElement('bkg-cont'), 'wintry_mix-bkg');
   }
   else if(weatherCodes.thunderstorm.test(code)){
     setToClass(getElement('wicon'),'thunderstorm');
+    setToClass(getElement('bkg-cont'), 'thunderstorm-bkg');
   }
   else if(weatherCodes.volc_ash.test(code)){
     setToClass(getElement('wicon'),'volc_ash');
+    setToClass(getElement('bkg-cont'), 'volc_ash-bkg');
   }
   else {
 
     if(isDay) {
+
+      getElement('main').style.color = '#000';
     
       if(cloudCodes.clear.test(code)) {
-        console.log(`is day and clear ${code}`);
         setToClass(getElement('wicon'),'clear-day');
+        setToClass(getElement('bkg-cont'), 'clear-d-bkg');
       }
       else if (cloudCodes.partly_cloudy.test(code)){
         setToClass(getElement('wicon'),'partly_cloudy-day');
+        setToClass(getElement('bkg-cont'), 'partly_c-d-bkg');
       }
       else if (cloudCodes.mostly_cloudy.test(code)){
         setToClass(getElement('wicon'),'mostly_cloudy-day');
+        setToClass(getElement('bkg-cont'), 'mostly_c-d-bkg');
       }
       else if(weatherCodes.mist_fog.test(code)){
         setToClass(getElement('wicon'),'mist_fog-day');
+        setToClass(getElement('bkg-cont'), 'mist_f-d-bkg');
       }
       else if(weatherCodes.frost_snow.test(code)){
         setToClass(getElement('wicon'),'frost_snow-day');
+        setToClass(getElement('bkg-cont'), 'frost_s-d-bkg');
       }
       else if(weatherCodes.rain_drizzle.test(code)){
         setToClass(getElement('wicon'),'rain_drizzle-day');
+        setToClass(getElement('bkg-cont'), 'rain_d-d-bkg');
       }
       else if(weatherCodes.waterspouts.test(code)){
         setToClass(getElement('wicon'),'waterspouts-day');
+        setToClass(getElement('bkg-cont'), 'watersp-d-bkg');
       }
       else {
         setToClass(getElement('wicon'),'unknown');
+        setToClass(getElement('bkg-cont'), 'unknown-bkg');
       }
   
     } else {
+
+      getElement('main').style.color = '#ccc';
       
       if(cloudCodes.clear.test(code)) {
         setToClass(getElement('wicon'),'clear-night');
+        setToClass(getElement('bkg-cont'), 'clear-n-bkg');
       }
       else if (cloudCodes.partly_cloudy.test(code)){
         setToClass(getElement('wicon'),'partly_cloudy-night');
+        setToClass(getElement('bkg-cont'), 'partly_c-n-bkg');
       }
       else if (cloudCodes.mostly_cloudy.test(code)){
         setToClass(getElement('wicon'),'mostly_cloudy-night');
+        setToClass(getElement('bkg-cont'), 'mostly_c-n-bkg');
       }
       else if(weatherCodes.mist_fog.test(code)){
         setToClass(getElement('wicon'),'mist_fog-night');
+        setToClass(getElement('bkg-cont'), 'mist_f-n-bkg');
       }
       else if(weatherCodes.frost_snow.test(code)){
         setToClass(getElement('wicon'),'frost_snow-night');
+        setToClass(getElement('bkg-cont'), 'frost_s-n-bkg');
       }
       else if(weatherCodes.rain_drizzle.test(code)){
         setToClass(getElement('wicon'),'rain_drizzle-night');
+        setToClass(getElement('bkg-cont'), 'rain_d-n-bkg');
       }
       else if(weatherCodes.waterspouts.test(code)){
         setToClass(getElement('wicon'),'waterspouts-night');
+        setToClass(getElement('bkg-cont'), 'watersp-n-bkg');
       }
       else {
         setToClass(getElement('wicon'),'unknown');
+        setToClass(getElement('bkg-cont'), 'unknown-bkg');
       }
     }  
   }
 }
-// el cairo mist and fog
+
 function setFields() {
 
   if(getElement('switchCF').checked) {
