@@ -15,14 +15,15 @@ Mobile-first small aplication to make queries about weather selected by any plac
   - eslint
 - npm
   - places.js
+- API service AerisWeather
 
 
 ## Live Version
-Here: [click](https://raw.githack.com/ricardovaltierra/restaurant-page/page-design/dist/index.html#)
+Here: [click](https://rawcdn.githack.com/ricardovaltierra/weatherapp/20d7c10d053857e3f0a6f40ef613e815fe425a32/dist/index.html)
 
 ## Usage
 ### Insert a place to look for weather
-<img src="./src/img/usage_1.gif" alt="Watch our menu and leave a comment" width="1000" />
+<img src="./src/img/usage_1.gif" alt="Query places to look for its weather information"/>
 
 You can clone the repo and run over your personal server.
 
