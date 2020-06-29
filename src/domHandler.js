@@ -102,23 +102,18 @@ function setImages() {
     setToClass(getElement('wicon'),'hail');
   }
   else if(weatherCodes.dust_sand.test(code)){
-    console.log(`is night with dust || sand ${code}`);
     setToClass(getElement('wicon'),'dust-sand');
   }
   else if(weatherCodes.smoke.test(code)){
-    console.log(`is night with smoke ${code}`);
     setToClass(getElement('wicon'),'smoke');
   }
   else if(weatherCodes.wintry_mix.test(code)){
-    console.log(`is night with wintry mix ${code}`);
     setToClass(getElement('wicon'),'wintry_mix');
   }
   else if(weatherCodes.thunderstorm.test(code)){
-    console.log(`is night with thunderstorm ${code}`);
     setToClass(getElement('wicon'),'thunderstorm');
   }
   else if(weatherCodes.volc_ash.test(code)){
-    console.log(`is night with volcanic ash ${code}`);
     setToClass(getElement('wicon'),'volc_ash');
   }
   else {
@@ -130,66 +125,51 @@ function setImages() {
         setToClass(getElement('wicon'),'clear-day');
       }
       else if (cloudCodes.partly_cloudy.test(code)){
-        console.log(`is day and partly cloudy ${code}`);
         setToClass(getElement('wicon'),'partly_cloudy-day');
       }
       else if (cloudCodes.mostly_cloudy.test(code)){
-        console.log(`is day and mostly cloudy ${code}`);
         setToClass(getElement('wicon'),'mostly_cloudy-day');
       }
       else if(weatherCodes.mist_fog.test(code)){
-        console.log(`is day with mist || fog ${code}`);
         setToClass(getElement('wicon'),'mist_fog-day');
       }
       else if(weatherCodes.frost_snow.test(code)){
-        console.log(`is day with frost || snow ${code}`);
         setToClass(getElement('wicon'),'frost_snow-day');
       }
       else if(weatherCodes.rain_drizzle.test(code)){
-        console.log(`is day with rain || drizzle ${code}`);
         setToClass(getElement('wicon'),'rain_drizzle-day');
       }
       else if(weatherCodes.waterspouts.test(code)){
-        console.log(`is day with waterspouts ${code}`);
         setToClass(getElement('wicon'),'waterspouts-day');
       }
       else {
-        console.log(`is day and with unknown climate ${code}`);
         setToClass(getElement('wicon'),'unknown');
       }
   
     } else {
       
       if(cloudCodes.clear.test(code)) {
-        console.log(`is night and clear ${code}`);
         setToClass(getElement('wicon'),'clear-night');
       }
       else if (cloudCodes.partly_cloudy.test(code)){
-        console.log(`is night and partly cloudy ${code}`);
         setToClass(getElement('wicon'),'partly_cloudy-night');
       }
       else if (cloudCodes.mostly_cloudy.test(code)){
-        console.log(`is night and mostly cloudy ${code}`);
         setToClass(getElement('wicon'),'mostly_cloudy-night');
       }
       else if(weatherCodes.mist_fog.test(code)){
-        console.log(`is night with mist || fog ${code}`);
         setToClass(getElement('wicon'),'mist_fog-night');
       }
       else if(weatherCodes.frost_snow.test(code)){
-        console.log(`is night with frost || snow ${code}`);
         setToClass(getElement('wicon'),'frost_snow-night');
       }
       else if(weatherCodes.rain_drizzle.test(code)){
-        console.log(`is night with rain || drizzle ${code}`);
         setToClass(getElement('wicon'),'rain_drizzle-night');
       }
       else if(weatherCodes.waterspouts.test(code)){
-        console.log(`is night with waterspouts ${code}`);
         setToClass(getElement('wicon'),'waterspouts-night');
       }
       else {
-        console.log(`is night and with unknown climate ${code}`);
         setToClass(getElement('wicon'),'unknown');
       }
     }  
