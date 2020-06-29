@@ -1,41 +1,11 @@
-import * as credentials from './credentials';
-import { setContent } from './domHandler';
+import * as places from 'places.js';
+import * as credentials from './credentials.json';
 import { getElement } from './elementsHander';
+import { setContent } from './domHandler';
 
-export const cloudCodes = {
-  clear: /:(CL|FW)$/i,
-  partly_cloudy: /:SC$/i,
-  mostly_cloudy: /:(BK|OV)$/i
-}
+async function getWeather(coordinates) {
+  let weatherData = null;
 
-export const weatherCodes = {
-  hail: /:A$/i,
-  dust_sand: /:(BD|BN)$/i,
-  mist_fog: /:(BR|BS|BY|F|H|IF|ZF)$/i,
-  frost_snow: /:(FR|IC|IP|S|SW|SI)$/i,
-  smoke: /:K$/i,
-  rain_drizzle: /:(L|R|RW|RS|ZL|ZR|ZY)$/i,
-  wintry_mix: /:WM$/i,
-  thunderstorm: /:T$/i,
-  unknown: /:UP$/i,
-  volc_ash: /:VA$/i,
-  waterspouts: /:WP$/i
-};
-
-export async function getPlace() {
-  const places = require('places.js');
-  const placesAutocomplete = await places({
-    appID: credentials.algolia.APLICATION_ID,
-    apiKey: credentials.algolia.SEARCH_ONLY_KEY,
-    container: getElement('address-input'),
-  });
-
-  placesAutocomplete.on('change', async e => {
-    weatherController([await e.suggestion.name, await e.suggestion.latlng]);
-  });
-}
-
-export async function getWeather(coordinates) {
   try {
     const response = await fetch(
       'https://api.aerisapi.com/observations/'
@@ -46,18 +16,19 @@ export async function getWeather(coordinates) {
       + `&client_secret=${credentials.aerisapi.SECRET_KEY}`,
       { mode: 'cors' },
     );
-    const weatherData = await response.json();
 
-    return weatherData;
+    weatherData = await response.json();
   } catch (err) {
-    errorDisplayer(err);
+    setContent(false, err);
   }
+
+  return weatherData;
 }
 
 async function weatherController(placeData) {
+  const name = placeData[0];
   let data;
   let date;
-  let formatedDate;
 
   getWeather(placeData[1]).then(weatherData => {
     try {
@@ -66,10 +37,22 @@ async function weatherController(placeData) {
       date = new Date(data.dateTimeISO);
       data.dateTimeISO = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 
-      data.placeName = placeData[0];
+      data.placeName = name;
       setContent(true, data);
     } catch (err) {
       setContent(false, err);
     }
+  });
+}
+
+export default async function getPlace() {
+  const placesAutocomplete = await places({
+    appID: credentials.algolia.APLICATION_ID,
+    apiKey: credentials.algolia.SEARCH_ONLY_KEY,
+    container: getElement('address-input'),
+  });
+
+  placesAutocomplete.on('change', async e => {
+    weatherController([await e.suggestion.name, await e.suggestion.latlng]);
   });
 }

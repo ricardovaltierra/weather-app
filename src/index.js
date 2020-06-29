@@ -1,6 +1,8 @@
 import './icons.scss';
 import './backgrounds.scss';
 import './style.scss';
-import { render } from './domHandler';
+import { createElements } from './domHandler';
+import getPlace from './apiconnection';
 
-render();
+createElements();
+getPlace();
