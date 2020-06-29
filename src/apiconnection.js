@@ -1,25 +1,25 @@
 import * as credentials from './credentials';
-import { cleanInput, dataArray, errorDisplayer, setFields } from './domHandler';
+import { setContent } from './domHandler';
 import { getElement } from './elementsHander';
 
 export const weatherCodes = {
-  hail: [A],
-  dust_sand: [BD,BN],
-  mist_fog: [BR,BS,BY,F,H,IF,ZF],
-  frost_snow: [FR,IC,IP,S,SW,SI],
-  smoke: [K],
-  rain_drizzle: [L,R,RW,RS,ZL,ZR,ZY],
-  wintry_mix: [WM],
-  thunderstorm: [T],
-  unknown: [UP],
-  volc_ash: [VA],
-  waterspouts: [WP]
+  hail: ['A'],
+  dust_sand: ['BD','BN'],
+  mist_fog: ['BR','BS','BY','F','H','IF','ZF'],
+  frost_snow: ['FR','IC','IP','S','SW','SI'],
+  smoke: ['K'],
+  rain_drizzle: ['L','R','RW','RS','ZL','ZR','ZY'],
+  wintry_mix: ['WM'],
+  thunderstorm: ['T'],
+  unknown: ['UP'],
+  volc_ash: ['VA'],
+  waterspouts: ['WP']
 };
 
 export const cloudCodes = {
-  clear: [CL,FW],
-  partly_cloudy: [SC],
-  mostly_cloudy: [BK,OV]
+  clear: ['CL','FW'],
+  partly_cloudy: ['SC'],
+  mostly_cloudy: ['BK','OV']
 }
 
 export async function getPlace() {
@@ -64,15 +64,12 @@ async function weatherController(placeData) {
       data = weatherData.response[0].ob;
 
       date = new Date(data.dateTimeISO);
-      formatedDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+      data.dateTimeISO = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 
-      cleanInput();
-      dataArray.name = placeData[0]
-      dataArray.data = data;
-      dataArray.date = formatedDate;
-      setFields();
+      data.placeName = placeData[0];
+      setContent(true, data);
     } catch (err) {
-      errorDisplayer(err);
+      setContent(false, err);
     }
   });
 }

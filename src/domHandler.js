@@ -1,4 +1,5 @@
-import { getPlace, weatherCodes, cloudCodes } from './apiconnection';
+import { weatherCodes, cloudCodes } from './apiconnection';
+import { getPlace } from './apiconnection';
 import {
   createElement,
   getElement,
@@ -14,33 +15,22 @@ import {
   appendToBody,
 } from './elementsHander';
 
-export let dataArray = {
-  name: 'City',
-  data: 
-    {
+let catchData = 
+  {
+    dateTimeISO: '--',
     feelslikeC: '--',
     feelslikeF: '--',
     humidity: '--',
     isDay: false,
+    placeName: 'City',
     tempC: '--',
     tempF: '--',
     weather: '--',
-    weatherPrimaryCoded: '--',
+    weatherPrimaryCoded: '::UP',
     windDir: '--',
     windSpeedKPH: '--',
     windSpeedMPH: '--'
-    },
-  date: '--'
-};
-
-export function cleanInput() {
-  setValue(getElement('address-input'), '');
-}
-
-export function errorDisplayer(err) {
-  console.log(err.message);
-  alert("We're sorry, somthing went wrong    :(");
-}
+  };
 
 function createDivs(childElements){
   let divs = [];
@@ -95,45 +85,63 @@ function createElements() {
   setClickListener(toggleCF, setFields);
 }
 
-function setBackground(imageData) {
-
-  let code = imageData[0];
-  let isDay = imageData[1];
-
-
-  console.log(`Code: ${imageData[0]}`);
-  console.log(`Day?: ${imageData[1]}`)
+function errorDisplayer() {
+  console.log(catchData.message);
+  alert("We're sorry, somthing went wrong    :(");
 }
 
-export function setFields() {
+function cleanInput() {
+  setValue(getElement('address-input'), '');
+}
 
-  let data = dataArray.data;
-  let imageData = [data.weatherPrimaryCoded, data.isDay];
+function setImages() {
+
+  // TOTAL OF 66 IMAGES
+  // 11 FOR WEATHER CONDITIONS
+  // * 3 ON CLOUD CONDITIONS
+  // * 2 PER DAY/NIGHT
+
+  console.log(`Code: ${catchData.weatherPrimaryCoded}`);
+  console.log(`Day?: ${catchData.isDay}`);
+}
+
+function setFields() {
 
   if(getElement('switchCF').checked) {
 
-    setInner(getElement('city-desc'), `${dataArray.name || '--'}`);
-    setInner(getElement('date-desc'), `Date:  ${dataArray.date || '--'}`);
-    setInner(getElement('weather-desc'), `Weather:  ${data.weather || '--'}`);
-    setInner(getElement('temperature-desc'), `Temperature:  ${data.tempC || '--'} °C`);
-    setInner(getElement('realFeel-desc'), `Real Feel:  ${data.feelslikeC || '--'} °C`);
-    setInner(getElement('windSpeed-desc'), `Wind Speed:  ${data.windSpeedKPH || '--'} K/Hr`);
-    setInner(getElement('humidity-desc'), `Humidity:  ${data.humidity || '--'}`);
-    setInner(getElement('windDirection-desc'), ` Wind direction: ${data.windDir || '--'}`);
+    setInner(getElement('city-desc'), `${catchData.placeName || 'City'}`);
+    setInner(getElement('date-desc'), `Date:  ${catchData.dateTimeISO || '--'}`);
+    setInner(getElement('weather-desc'), `Weather:  ${catchData.weather || '--'}`);
+    setInner(getElement('temperature-desc'), `Temperature:  ${catchData.tempC || '--'} °C`);
+    setInner(getElement('realFeel-desc'), `Real Feel:  ${catchData.feelslikeC || '--'} °C`);
+    setInner(getElement('windSpeed-desc'), `Wind Speed:  ${catchData.windSpeedKPH || '--'} K/Hr`);
+    setInner(getElement('humidity-desc'), `Humidity:  ${catchData.humidity || '--'}`);
+    setInner(getElement('windDirection-desc'), ` Wind direction: ${catchData.windDir || '--'}`);
 
   } else {
 
-    setInner(getElement('city-desc'), `${dataArray.name || '--'}`);
-    setInner(getElement('date-desc'), `Date:  ${dataArray.date || '--'}`);
-    setInner(getElement('weather-desc'), `Weather:  ${data.weather || '--'}`);
-    setInner(getElement('temperature-desc'), `Temperature:  ${data.tempF || '--'} °F`);
-    setInner(getElement('realFeel-desc'), `Real Feel:  ${data.feelslikeF || '--'} °F`);
-    setInner(getElement('windSpeed-desc'), `Wind Speed:  ${data.windSpeedMPH || '--'} Mi/hr`);
-    setInner(getElement('humidity-desc'), `Humidity:  ${data.humidity || '--'}`);
-    setInner(getElement('windDirection-desc'), ` Wind direction: ${data.windDir || '--'}`);
+    setInner(getElement('city-desc'), `${catchData.placeName || 'City'}`);
+    setInner(getElement('date-desc'), `Date:  ${catchData.dateTimeISO || '--'}`);
+    setInner(getElement('weather-desc'), `Weather:  ${catchData.weather || '--'}`);
+    setInner(getElement('temperature-desc'), `Temperature:  ${catchData.tempF || '--'} °F`);
+    setInner(getElement('realFeel-desc'), `Real Feel:  ${catchData.feelslikeF || '--'} °F`);
+    setInner(getElement('windSpeed-desc'), `Wind Speed:  ${catchData.windSpeedMPH || '--'} Mi/hr`);
+    setInner(getElement('humidity-desc'), `Humidity:  ${catchData.humidity || '--'}`);
+    setInner(getElement('windDirection-desc'), ` Wind direction: ${catchData.windDir || '--'}`);
   }
+}
 
-  setBackground(imageData);
+export function setContent(flag, response) {
+
+  catchData = response;
+
+  if (flag) {
+    cleanInput();
+    setImages();
+    setFields();
+  } else {
+    errorDisplayer();
+  }
 }
 
 export function render() {
