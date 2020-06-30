@@ -27,6 +27,39 @@ Here: [click](https://rawcdn.githack.com/ricardovaltierra/weatherapp/20d7c10d053
 
 You can clone the repo and run over your personal server.
 
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+Clone or fork the <a href="https://github.com/ricardovaltierra/weatherapp">repo</a> [git@github.com:ricardovaltierra/weatherapp.git]
+
+*note you need have install npm or yarn
+* [npm](https://www.npmjs.com/get-npm)
+* [yarn](https://classic.yarnpkg.com/en/docs/install)
+
+<!-- HOW IT WORKS -->
+## How it Works
+
+This webpage is built on vanilla JS requiring you to set it on just have an account and credentials for the following API's:
+
+* [Algolia Places](https://community.algolia.com/)
+* [Aeris Weather](https://www.aerisweather.com/)
+
+Both are free for usage. Once done just fill the credentials on `src/credentials.json`.
+
+### Running the code
+
+*   Navigate to the root directory of the project
+
+*   Run this command on your terminal to add all the required packages and dependencies
+    ```
+    $ npm install
+    ```
+*   Now you can run with webpack and play with it
+    ```
+    $ npm run watch
+    ```
+
 ## 🤝 Contributing
 
 Contributions are more than welcome!<br/>Feel free to check [issues page]https://github.com/ricardovaltierra/weatherapp/issues).
