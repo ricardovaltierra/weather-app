@@ -1,6 +1,6 @@
 # Weather App
 
-> Microverse ES6 Project
+> Microverse ES6 Project.
 
 <p align="right">
   <br>
@@ -32,9 +32,9 @@
 
 ## About The Project
 
-Microverse WeatherApp Project for applying Asynchronous JS &amp; API
+A mobile-first weather app with the use of AerisWeather API service allowing users to make queries via Algolia Places about forecast on F° || C°.
 
-Mobile-first small aplication to make queries about weather selected by any place inserted into the search box. 
+Developed on Asynchronous JS functions &amp; API services basis.
 
 ## Preview
 ### Insert a place to look for weather
@@ -66,9 +66,9 @@ Feel free to use and recommend it.
 
 To get a local copy up and running follow these simple steps.
 
-Clone or fork the <a href="https://github.com/ricardovaltierra/weatherapp">repo</a> [git@github.com:ricardovaltierra/weatherapp.git]
+Clone or fork the <a href="https://github.com/ricardovaltierra/weatherapp">repo</a> [git@github.com:ricardovaltierra/weatherapp.git].
 
-*note you need have install npm or yarn
+*note you need have install npm or yarn.
 * [npm](https://www.npmjs.com/get-npm)
 * [yarn](https://classic.yarnpkg.com/en/docs/install)
 
@@ -86,30 +86,30 @@ It is just required to build on top to have an account and credentials for the f
 Both are free for usage. Once done just fill the credentials on `src/credentials.json`.
 
 
-*   Navigate to the root directory of the project
+*   Navigate to the root directory of the project.
 
-*   Run this command on your terminal to add all the required packages and dependencies
+*   Run this command on your terminal to add all the required packages and dependencies.
     ```
     $ npm install
     ```
-*   Now you can run with webpack and play with it
+*   Now you can run with webpack and play with it.
     ```
     $ npm run watch
     ```
     
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-1. Fork the Project
+1. Fork the Project.
 
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`).
 
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
 
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`).
 
-5. Open a Pull Request
+5. Open a Pull Request.
 
 ## Contact
 
@@ -123,7 +123,7 @@ This project is under the [MIT](LICENSE) license.
 
 Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
-"plain weather icons" by [MerlinTheRed](https://www.deviantart.com/merlinthered/about#about) is licensed under [Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
+"Plain Weather Icons" by [MerlinTheRed](https://www.deviantart.com/merlinthered/about#about) is licensed under [Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
 
 [![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
 
