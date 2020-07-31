@@ -40,7 +40,7 @@ Mobile-first small aplication to make queries about weather selected by any plac
 ### Insert a place to look for weather
 <img src="./src/img/usage_1.gif" alt="Query places to look for its weather information"/>
 
-> [Live Version!](https://rawcdn.githack.com/ricardovaltierra/weatherapp/20d7c10d053857e3f0a6f40ef613e815fe425a32/dist/index.html)
+> [Live Version](https://rawcdn.githack.com/ricardovaltierra/weatherapp/20d7c10d053857e3f0a6f40ef613e815fe425a32/dist/index.html)
 
 Feel free to use and recommend it.
 
