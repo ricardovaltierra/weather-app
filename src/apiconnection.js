@@ -19,7 +19,8 @@ async function getWeather(coordinates) {
 
     weatherData = await response.json();
   } catch (err) {
-    setContent(false, err);
+    weatherData = await err.json();
+    setContent(false, weatherData);
   }
 
   return weatherData;

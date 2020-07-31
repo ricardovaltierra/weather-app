@@ -1,3 +1,4 @@
+import favicon from './svg/favicon.png';
 import {
   createElement,
   getElement,
@@ -180,6 +181,14 @@ function setFields() {
   }
 }
 
+function setIcon(favicon) {
+  const head = document.querySelector('head');
+  const linkIcon = createElement('link', 'favicon', '', '');
+  linkIcon.setAttribute('rel', 'shortcut icon');
+  linkIcon.setAttribute('href', favicon);
+  appendChild(head, linkIcon);
+}
+
 export function createElements() {
   const main = createElement('main', 'bkg-cont', 'init-bkg', '');
   const divPlace = createElement('div', 'divPlace', '', '');
@@ -219,6 +228,7 @@ export function createElements() {
   appendChilds(card, divs);
   appendChilds(main, [divPlace, card, WiCont]);
 
+  setIcon(favicon);
   appendToBody(main);
 
   setClickListener(toggleCF, setFields);
