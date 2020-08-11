@@ -16,8 +16,8 @@ module.exports = {
       filename: 'index.html',
       meta: {
         author: 'Ricardo Valtierra',
-        'og:image': { property: 'og:image', content: 'https://opengameart.org/sites/default/files/jabolko%28red%29.png' },
-        'linkedin:image': { name: 'linkedin:image', content: 'https://opengameart.org/sites/default/files/jabolko%28red%29.png' },
+        'og:image': { property: 'og:image', content: './src/img/usage_1.gif' },
+        'linkedin:image': { name: 'linkedin:image', content: './src/img/usage_1.gif' },
         'og:url': { property: 'og:url', content: 'https://weather-query.netlify.app/' },
         'linkedin:card': 'summary',
         'og:description': { property: 'og:description', content: 'Weather App for a global forecast on F° and C°' },
