@@ -20,7 +20,7 @@ module.exports = {
         'linkedin:image': { name: 'linkedin:image', content: 'https://github.com/ricardovaltierra/weather-app/blob/master/src/img/usage_1.gif' },
         'og:url': { property: 'og:url', content: 'https://weather-query.netlify.app/' },
         'linkedin:card': 'summary',
-        'og:description': { property: 'og:description', content: 'Weather App for a global forecast on F° and C°' },
+        'og:description': { property: 'og:description', content: 'Weather App for a global forecast on F° and C° on mobile' },
         'og:title': { property: 'og:title', content: 'Weather App' },
       },
     }),
