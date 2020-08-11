@@ -1,84 +1,133 @@
-weather app
-==============
-Microverse WeatherApp Project for applying Asynchronous JS &amp; API
+# Weather App
 
-Mobile-first small aplication to make queries about weather selected by any place inserted into the search box. 
+> Microverse ES6 Project.
 
-### Built with
+<p align="right">
+  <br>
+  <a href="https://github.com/ricardovaltierra/weatherapp">Explore the repo »</a>
+  <br>
+  <a href="https://github.com/ricardovaltierra/weatherapp/issues">Request Feature</a>
+</p>
 
-- webpack
-  - bulma
-  - css-loader
-  - file-loader
-  - html-webpack-plugin
-  - stylelint
-  - eslint
-- npm
-  - places.js
-- API service AerisWeather
+## Table of Contents
+
+* [About the Project](#about-the-project)
+
+* [Preview](#preview)
+
+* [Built With](#built-with)
+
+* [Getting Started](#getting-started)
+
+* [How it Works](#how-it-works)
+
+* [Contributing](#contributing)
+
+* [Contact](#contact)
+
+* [MIT License](#mit-license)
+
+* [Creative Commons License](#creative-commons-license)
 
 
-## Live Version
-Here: [click](https://rawcdn.githack.com/ricardovaltierra/weatherapp/20d7c10d053857e3f0a6f40ef613e815fe425a32/dist/index.html)
+## About The Project
 
-## Usage
+A mobile-first weather app with the use of AerisWeather API service allowing users to make queries via Algolia Places about forecast on F° || C°.
+
+Developed on Asynchronous JS functions &amp; API services basis.
+
+## Preview
 ### Insert a place to look for weather
-<img src="./src/img/usage_1.gif" alt="Query places to look for its weather information"/>
+<img src="./src/img/usage_1.gif" alt="Query places to look for its weather information" width="200"/>
 
-You can clone the repo and run over your personal server.
+> [Live Version](https://weather-query.netlify.app/)
+
+Feel free to use and recommend it.
+
+### Built With
+
+* [HTML5](https://developer.mozilla.org/es/docs/HTML/HTML5)
+
+* [Bulma/CSS](https://bulma.io/)
+
+* [ES6](https://es6.io/)
+
+* [Webpack 4](https://webpack.js.org/)
+
+* npm Packages used:
+    * [ESLint](https://eslint.org/)
+    * [StyleLint](https://stylelint.io/)
+    * [Webpack asset managers](https://webpack.js.org/guides/asset-management/)
+    * [Algolia Places](https://community.algolia.com/places/)
+
+* [AerisWeather API](https://www.aerisweather.com/)
 
 ## Getting Started
 
 To get a local copy up and running follow these simple steps.
 
-Clone or fork the <a href="https://github.com/ricardovaltierra/weatherapp">repo</a> [git@github.com:ricardovaltierra/weatherapp.git]
+Clone or fork the <a href="https://github.com/ricardovaltierra/weatherapp">repo</a> [git@github.com:ricardovaltierra/weatherapp.git].
 
-*note you need have install npm or yarn
+*note you need have install npm or yarn.
 * [npm](https://www.npmjs.com/get-npm)
 * [yarn](https://classic.yarnpkg.com/en/docs/install)
 
-<!-- HOW IT WORKS -->
 ## How it Works
 
-This webpage is built on vanilla JS requiring you to set it on just have an account and credentials for the following API's:
+This webpage is built with pure Javascript, it needs Webpack to proper use because has various imports of code and it has various little helper functions. All of the resources (images, fonts) and .js files are located inside `/src` folder.
+
+### Running the code
+
+It is just required to build on top to have an account and credentials for the following API's:
 
 * [Algolia Places](https://community.algolia.com/)
 * [Aeris Weather](https://www.aerisweather.com/)
 
 Both are free for usage. Once done just fill the credentials on `src/credentials.json`.
 
-### Running the code
 
-*   Navigate to the root directory of the project
+*   Navigate to the root directory of the project.
 
-*   Run this command on your terminal to add all the required packages and dependencies
+*   Run this command on your terminal to add all the required packages and dependencies.
     ```
     $ npm install
     ```
-*   Now you can run with webpack and play with it
+*   Now you can run with webpack and play with it.
     ```
     $ npm run watch
     ```
+    
+## Contributing
 
-## 🤝 Contributing
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-Contributions are more than welcome!<br/>Feel free to check [issues page]https://github.com/ricardovaltierra/weatherapp/issues).
+1. Fork the Project.
 
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`).
 
-1. Fork (https://github.com/ricardovaltierra/weatherapp/fork)
-2. Create your working branch (git checkout -b [branch_name])
-3. Commit your changes (git commit -am 'what you will add or fix or improve')
-4. Push (git push origin [branch_name])
-5. Create a PR
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
 
-## 🤖 Contributor
+4. Push to the Branch (`git push origin feature/AmazingFeature`).
 
-Ricardo Valtierra - [GitHub](https://github.com/ricardovaltierra)
+5. Open a Pull Request.
 
-## 🙋‍♂ Support :)
+## Contact
 
-Give a ⭐️ if you liked it!
+Ricardo Valtierra - [@RicardoValtie15](https://twitter.com/RicardoValtie15) - ricardo_valtierra@outlook.com  - [linkedin.com/in/ricardovaltierra/](https://www.linkedin.com/in/ricardovaltierra/)
 
-## 📝 License
+## MIT License
 
 This project is under the [MIT](LICENSE) license.
+
+## Creative Commons
+
+Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
+
+"Plain Weather Icons" by [MerlinTheRed](https://www.deviantart.com/merlinthered/about#about) is licensed under [Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
+
+[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
+
+[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
+[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
+[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
+
