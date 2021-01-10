@@ -16,8 +16,8 @@ module.exports = {
       filename: 'index.html',
       meta: {
         author: 'Ricardo Valtierra',
-        'og:image': { property: 'og:image', content: 'https://raw.githubusercontent.com/ricardovaltierra/weather-app/development/public/preview.png' },
-        'linkedin:image': { name: 'linkedin:image', content: 'https://raw.githubusercontent.com/ricardovaltierra/weather-app/development/public/preview.png' },
+        'og:image': { property: 'og:image', content: 'https://raw.githubusercontent.com/ricardovaltierra/weather-app/development/src/img/preview.png' },
+        'linkedin:image': { name: 'linkedin:image', content: 'https://raw.githubusercontent.com/ricardovaltierra/weather-app/development/src/img/preview.png' },
         'og:url': { property: 'og:url', content: 'https://weather-query.netlify.app/' },
         'linkedin:card': 'summary',
         'og:description': { property: 'og:description', content: 'Weather App for a global forecast on F° and C°' },
