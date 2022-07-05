@@ -2,7 +2,7 @@
   "name": "weatherapp",
   "version": "1.0.0",
   "description": "Microverse WeatherApp Project for applying Asynchronous JS &amp; API",
-  "private": "true",
+  "private": "true",    
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
@@ -32,8 +32,7 @@
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",
-    "node-sass": "^7.0.0",
-    "sass": "^1.26.9",
+    "sass": "^1.52.3",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "stylelint": "^13.3.3",
