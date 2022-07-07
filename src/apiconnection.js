@@ -16,7 +16,7 @@ async function getWeather(coordinates) {
       { mode: 'cors' },
     );
 
-    console.log(`AERIS_API_APP_ID: ${process.env}`);
+    console.log(process.env);
     weatherData = await response.json();
   } catch (err) {
     weatherData = await err.json();
