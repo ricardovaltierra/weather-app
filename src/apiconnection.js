@@ -1,5 +1,4 @@
 import * as places from 'places.js';
-import * as credentials from './credentials.json';
 import { getElement } from './elementsHander';
 import { setContent } from './domHandler';
 
@@ -12,11 +11,12 @@ async function getWeather(coordinates) {
       + `closest?p=${coordinates.lat},${coordinates.lng}`
       + '&limit=1&format=json&filter=allstations'
       + '&fields=ob.isDay,ob.dateTimeISO,ob.tempF,ob.tempC,ob.humidity,ob.windSpeedMPH,ob.windSpeedKPH,ob.windDir,ob.weather,ob.feelslikeF,ob.feelslikeC,ob.weatherPrimaryCoded'
-      + `&client_id=${credentials.aerisapi.APP_ID}`
-      + `&client_secret=${credentials.aerisapi.SECRET_KEY}`,
+      + `&client_id=${process.env.AERISAPI_APP_ID}`
+      + `&client_secret=${process.env.AERISAPI_SECRET_KEY}`,
       { mode: 'cors' },
     );
 
+    console.log(process.env);
     weatherData = await response.json();
   } catch (err) {
     weatherData = await err.json();
@@ -48,10 +48,12 @@ async function weatherController(placeData) {
 
 export default async function getPlace() {
   const placesAutocomplete = await places({
-    appID: credentials.algolia.APLICATION_ID,
-    apiKey: credentials.algolia.SEARCH_ONLY_KEY,
+    appID: process.env.ALGOLIA_APP_ID,
+    apiKey: process.env.ALGOLIA_SEARCH_ONLY_KEY,
     container: getElement('address-input'),
   });
+
+  console.log(`ALGOLIA_APP_ID: ${process.env.ALGOLIA_APP_ID}`);
 
   placesAutocomplete.on('change', async e => {
     weatherController([await e.suggestion.name, await e.suggestion.latlng]);

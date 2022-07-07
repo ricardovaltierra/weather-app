@@ -83,9 +83,6 @@ It is just required to build on top to have an account and credentials for the f
 * [Algolia Places](https://community.algolia.com/)
 * [Aeris Weather](https://www.aerisweather.com/)
 
-Both are free for usage. Once done just fill the credentials on `src/credentials.json`.
-
-
 *   Navigate to the root directory of the project.
 
 *   Run this command on your terminal to add all the required packages and dependencies.
