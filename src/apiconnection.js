@@ -16,6 +16,7 @@ async function getWeather(coordinates) {
       { mode: 'cors' },
     );
 
+    console.log(`AERIS_API_APP_ID: ${process.env.AERISAPI_SECRET_KEY}`);
     weatherData = await response.json();
   } catch (err) {
     weatherData = await err.json();
@@ -51,6 +52,8 @@ export default async function getPlace() {
     apiKey: process.env.ALGOLIA_SEARCH_ONLY_KEY,
     container: getElement('address-input'),
   });
+
+  console.log(`ALFGOLIA_APP_ID: ${process.env.ALGOLIA_APP_ID}`);
 
   placesAutocomplete.on('change', async e => {
     weatherController([await e.suggestion.name, await e.suggestion.latlng]);
